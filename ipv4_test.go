@@ -1,4 +1,4 @@
-package go_value_objects
+package vo
 
 import (
 	"reflect"
