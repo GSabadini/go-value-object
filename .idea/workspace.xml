@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04ea6ff7-4c2d-4b70-a5aa-adf6b80358d0" name="Default Changelist" comment="" />
+    <list default="true" id="04ea6ff7-4c2d-4b70-a5aa-adf6b80358d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/go-value-objects.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipv4.go" beforeDir="false" afterPath="$PROJECT_DIR$/ipv4.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipv4_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/ipv4_test.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +23,11 @@
     </option>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Yl0E9gstWhXGgJBJduPD33q2VV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,8 +48,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Go Test.TestIPv4Value in ipv4_test.go (1)">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="go-value-object" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestIPv4Value in ipv4_test.go (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-value-objects" />
+      <module name="go-value-object" />
       <working_directory value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <kind value="FILE" />
@@ -46,7 +67,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestIPv4Value in ipv4_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-value-objects" />
+      <module name="go-value-object" />
       <working_directory value="$PROJECT_DIR$/network" />
       <framework value="gotest" />
       <kind value="FILE" />
@@ -55,7 +76,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestNewIPv4 in ipv4_test.go (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-value-objects" />
+      <module name="go-value-object" />
       <working_directory value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <kind value="FILE" />
@@ -64,7 +85,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestNewIPv4 in ipv4_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-value-objects" />
+      <module name="go-value-object" />
       <working_directory value="$PROJECT_DIR$/network" />
       <framework value="gotest" />
       <kind value="FILE" />
@@ -73,12 +94,22 @@
       <method v="2" />
     </configuration>
     <configuration name="TestNewIPv4VO in ipv4_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-value-objects" />
+      <module name="go-value-object" />
       <working_directory value="$PROJECT_DIR$/network" />
       <framework value="gotest" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/network/ipv4_test.go" />
       <pattern value="^TestNewIPv4VO$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="go-value-object" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -95,6 +126,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2142" y="256" width="508" height="382" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583510357463">
+      <screen x="1600" y="0" width="1600" height="900" />
+    </state>
+    <state x="2142" y="256" width="508" height="382" key="#com.intellij.fileTypes.FileTypeChooser/1600.0.1600.900/0.0.1600.900@1600.0.1600.900" timestamp="1583510357463" />
     <state x="2208" y="169" width="376" height="556" key="#com.intellij.ide.util.MemberChooser" timestamp="1583501844488">
       <screen x="1600" y="0" width="1600" height="900" />
     </state>

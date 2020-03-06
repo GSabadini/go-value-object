@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/go-value-objects.iml" filepath="$PROJECT_DIR$/.idea/go-value-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/go-value-object.iml" filepath="$PROJECT_DIR$/.idea/go-value-object.iml" />
     </modules>
   </component>
 </project>
