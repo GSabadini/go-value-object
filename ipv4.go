@@ -22,7 +22,7 @@ type IPv4 struct {
 func NewIPv4(value string) (IPv4, error) {
 	var IP = IPv4{value: value}
 
-	if IP.validate() {
+	if !IP.validate() {
 		return IPv4{}, ErrInvalidIPv4
 	}
 
@@ -30,7 +30,7 @@ func NewIPv4(value string) (IPv4, error) {
 }
 
 func (ip IPv4) validate() bool {
-	return net.ParseIP(ip.value) == nil
+	return net.ParseIP(ip.value) != nil
 }
 
 // Value return value IPv4
