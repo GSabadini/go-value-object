@@ -55,36 +55,74 @@ func TestNewIPv4(t *testing.T) {
 	}
 }
 
-func TestIPv4Value(t *testing.T) {
+func TestIPv4_Equals(t *testing.T) {
 	type fields struct {
 		value string
 	}
-
+	type args struct {
+		value Value
+	}
 	tests := []struct {
 		name   string
 		fields fields
-		want   IP
+		args   args
+		want   bool
 	}{
-		{
-			name:   "Return value",
-			fields: fields{value: "192.168.0.110"},
-			want:   IP("192.168.0.110"),
-		},
-		{
-			name:   "Return value",
-			fields: fields{value: "101.101.0.101"},
-			want:   IP("101.101.0.101"),
-		},
+		// TODO: Add test cases.
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			ip := IPv4{
 				value: tt.fields.value,
 			}
+			if got := ip.Equals(tt.args.value); got != tt.want {
+				t.Errorf("Equals() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
 
+func TestIPv4_String(t *testing.T) {
+	type fields struct {
+		value string
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   string
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ip := IPv4{
+				value: tt.fields.value,
+			}
+			if got := ip.String(); got != tt.want {
+				t.Errorf("String() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestIPv4_Value(t *testing.T) {
+	type fields struct {
+		value string
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   string
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ip := IPv4{
+				value: tt.fields.value,
+			}
 			if got := ip.Value(); got != tt.want {
-				t.Errorf("[TestCase '%s'] Got: '%v' | Want: '%v'", tt.name, got, tt.want)
+				t.Errorf("Value() = %v, want %v", got, tt.want)
 			}
 		})
 	}

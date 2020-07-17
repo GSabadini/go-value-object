@@ -10,9 +10,6 @@ var (
 	ErrInvalidIPv4 = errors.New("invalid IPv4")
 )
 
-// IP represents an IP type
-type IP string
-
 // IPv4 structure
 type IPv4 struct {
 	value string
@@ -34,6 +31,17 @@ func (ip IPv4) validate() bool {
 }
 
 // Value return value IPv4
-func (ip IPv4) Value() IP {
-	return IP(ip.value)
+func (ip IPv4) Value() string {
+	return ip.value
+}
+
+// String returns string representation of the IPv4
+func (ip IPv4) String() string {
+	return string(ip.value)
+}
+
+// Equals checks that two IPv4 are the same
+func (ip IPv4) Equals(value Value) bool {
+	o, ok := value.(IPv4)
+	return ok && ip.value == o.value
 }
