@@ -17,24 +17,24 @@ func TestNewEmail(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name:    "Test valid email",
+			name:    "Test new valid email",
 			args:    args{value: "test@test.com"},
 			want:    Email{value: "test@test.com"},
 			wantErr: false,
 		},
 		{
-			name:    "Test valid email",
+			name:    "Test new valid email",
 			args:    args{value: "yyyyyy@xxxxxx.com"},
 			want:    Email{value: "yyyyyy@xxxxxx.com"},
 			wantErr: false,
 		},
 		{
-			name:    "Test invalid email",
+			name:    "Test new invalid email",
 			args:    args{value: "xxxxxxxx.com"},
 			wantErr: true,
 		},
 		{
-			name:    "Test invalid email",
+			name:    "Test new invalid email",
 			args:    args{value: "test#test.com"},
 			wantErr: true,
 		},
@@ -44,7 +44,7 @@ func TestNewEmail(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := NewEmail(tt.args.value)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("[TestCase '%s'] ResultErr: '%v' | WantErr: '%v'", tt.name, err, tt.wantErr)
+				t.Errorf("[TestCase '%s'] Err: '%v' | WantErr: '%v'", tt.name, err, tt.wantErr)
 				return
 			}
 
@@ -59,6 +59,7 @@ func TestEmail_Equals(t *testing.T) {
 	type fields struct {
 		value string
 	}
+
 	type args struct {
 		value Value
 	}
@@ -68,38 +69,58 @@ func TestEmail_Equals(t *testing.T) {
 		args   args
 		want   bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "email value equals",
+			fields: fields{
+				value: "test@test.com",
+			},
+			args: args{
+				value: Email{"test@test.com"},
+			},
+			want: true,
+		},
+		{
+			name: "email value equals",
+			fields: fields{
+				value: "xxxxxx@xxxxxx.com",
+			},
+			args: args{
+				value: Email{"xxxxxx@xxxxxx.com"},
+			},
+			want: true,
+		},
+		{
+			name: "email value not equals",
+			fields: fields{
+				value: "test@test.com",
+			},
+			args: args{
+				value: Email{"test1@test.com"},
+			},
+			want: false,
+		},
+		{
+			name: "email value not equals",
+			fields: fields{
+				value: "xxxx@yyyy.com",
+			},
+			args: args{
+				value: Email{"yyyy@xxxx.com"},
+			},
+			want: false,
+		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			e := Email{
-				value: tt.fields.value,
-			}
-			if got := e.Equals(tt.args.value); got != tt.want {
-				t.Errorf("Equals() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
 
-func TestEmail_String(t *testing.T) {
-	type fields struct {
-		value string
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		// TODO: Add test cases.
-	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			e := Email{
-				value: tt.fields.value,
+			e, err := NewEmail(tt.fields.value)
+			if err != nil {
+				t.Errorf("[TestCase '%s'] Err: '%v'", tt.name, err)
+				return
 			}
-			if got := e.String(); got != tt.want {
-				t.Errorf("String() = %v, want %v", got, tt.want)
+
+			if got := e.Equals(tt.args.value); got != tt.want {
+				t.Errorf("[TestCase '%s'] Got: '%v' | Want: '%v'", tt.name, got, tt.want)
 			}
 		})
 	}
@@ -114,38 +135,32 @@ func TestEmail_Value(t *testing.T) {
 		fields fields
 		want   string
 	}{
-		// TODO: Add test cases.
+		{
+			name: "get value",
+			fields: fields{
+				value: "test@test.com",
+			},
+			want: "test@test.com",
+		},
+		{
+			name: "get value",
+			fields: fields{
+				value: "test@example.com",
+			},
+			want: "test@example.com",
+		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			e := Email{
-				value: tt.fields.value,
-			}
-			if got := e.Value(); got != tt.want {
-				t.Errorf("Value() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
 
-func TestEmail_validate(t *testing.T) {
-	type fields struct {
-		value string
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   bool
-	}{
-		// TODO: Add test cases.
-	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			e := Email{
-				value: tt.fields.value,
+			e, err := NewEmail(tt.fields.value)
+			if err != nil {
+				t.Errorf("[TestCase '%s'] Err: '%v'", tt.name, err)
+				return
 			}
-			if got := e.validate(); got != tt.want {
-				t.Errorf("validate() = %v, want %v", got, tt.want)
+
+			if got := e.Value(); got != tt.want {
+				t.Errorf("[TestCase '%s'] Got: '%v' | Want: '%v'", tt.name, got, tt.want)
 			}
 		})
 	}

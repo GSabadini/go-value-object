@@ -9,7 +9,7 @@ var (
 	// ErrInvalidFilePath return invalid FilePath
 	ErrInvalidFilePath = errors.New("invalid file path")
 
-	rxFilePath = regexp.MustCompile(`/^\\/[\\w+-]*[\\/\\w+-]*\\/?$/`)
+	rxFilePath = regexp.MustCompile(`^\/[\w+-]*[\/\w+-]*\/?$`)
 )
 
 // FilePath structure
@@ -19,13 +19,13 @@ type FilePath struct {
 
 // NewFilePath create new FilePath
 func NewFilePath(value string) (FilePath, error) {
-	var fp = FilePath{value: value}
+	var f = FilePath{value: value}
 
-	if !fp.validate() {
+	if !f.validate() {
 		return FilePath{}, ErrInvalidFilePath
 	}
 
-	return fp, nil
+	return f, nil
 }
 
 func (f FilePath) validate() bool {
@@ -44,6 +44,6 @@ func (f FilePath) String() string {
 
 // Equals checks that two FilePath are the same
 func (f FilePath) Equals(value Value) bool {
-	o, ok := value.(Email)
+	o, ok := value.(FilePath)
 	return ok && f.value == o.value
 }

@@ -8,8 +8,9 @@ import (
 )
 
 type Info struct {
-	Email vo.Email
-	IPv4  vo.IPv4
+	email    vo.Email
+	ipv4     vo.IPv4
+	filepath vo.FilePath
 }
 
 func main() {
@@ -17,34 +18,46 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	//fmt.Println(e.String())
-	//
-	//e2, err := vo.NewEmail("test@test.com")
-	//if err != nil {
-	//	log.Println(err)
-	//}
-	//fmt.Println(e.String())
-	//
-	//fmt.Println("\n", e.Equals(e2))
+
+	e2, err := vo.NewEmail("test@test.com")
+	if err != nil {
+		log.Println(err)
+	}
+
+	fmt.Println("\nemail equals:", e.Equals(e2))
 
 	ip, err := vo.NewIPv4("192.168.0.110")
 	if err != nil {
 		log.Println(err)
 	}
-	//fmt.Println(e.String())
-	//
-	//ip2, err := vo.NewIPv4("192.168.0.110")
-	//if err != nil {
-	//	log.Println(err)
-	//}
-	//fmt.Println(e.String())
-	//
-	//fmt.Println("\n", ip.Equals(ip2))
 
-	p := Info{
-		Email: e,
-		IPv4:  ip,
+	ip2, err := vo.NewIPv4("192.168.0.110")
+	if err != nil {
+		log.Println(err)
 	}
 
-	fmt.Println(p.Email.String())
+	fmt.Println("\nip equals:", ip.Equals(ip2))
+
+	f, err := vo.NewFilePath("/vo/file_path_test/")
+	if err != nil {
+		log.Println(err)
+	}
+
+	f1, err := vo.NewFilePath("/vo/file_path_test/")
+	if err != nil {
+		log.Println(err)
+	}
+
+	fmt.Println("\nfilepath equals:", f.Equals(f1))
+
+	p := Info{
+		email:    e,
+		ipv4:     ip,
+		filepath: f,
+	}
+
+	fmt.Println("\nvalues:")
+	fmt.Println(p.email.Value())
+	fmt.Println(p.ipv4.Value())
+	fmt.Println(p.filepath.Value())
 }
