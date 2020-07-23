@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/GSabadini/go-value-object/vo"
+	vo "github.com/GSabadini/go-value-object"
 )
 
 type Info struct {
